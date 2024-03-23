@@ -1,0 +1,924 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">* {
+    background-color: #333345;
+    color: white;
+}
+
+.QPushButton {
+	background-color: #5f5fc3; 
+    border-style: none; 
+    border-radius: 10px; 
+    padding: 10px; 
+    color: white;
+}
+
+.QPushButton:hover {
+    background-color: #7c7cff;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0" columnstretch="0,0,1,0,0">
+    <item row="5" column="0">
+     <widget class="QPushButton" name="first_frame">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: white;
+	padding: 2px;
+    border-style: none;
+    border-radius: 0;
+    background-color: #3b3b4b;
+}
+
+QPushButton:hover {
+    background-color: #4a4a5d;
+    border-style: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>На первый кадр</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="4">
+     <widget class="QLabel" name="label_3">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;</string>
+      </property>
+      <property name="text">
+       <string>Текущий кадр</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <layout class="QVBoxLayout" name="verticalLayout_6">
+      <item>
+       <widget class="QSlider" name="timeline_visual_multiplier">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16</height>
+         </size>
+        </property>
+        <property name="maximum">
+         <number>200</number>
+        </property>
+        <property name="value">
+         <number>100</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="timeline_visual_multiplier_description">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;</string>
+        </property>
+        <property name="text">
+         <string>Размер таймлайна 100%</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;</string>
+      </property>
+      <property name="text">
+       <string>Частота кадров</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="QSpinBox" name="current_frame">
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; font-size: 16px;</string>
+      </property>
+      <property name="maximum">
+       <number>5000</number>
+      </property>
+      <property name="value">
+       <number>600</number>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="QWidget" name="widget" native="true">
+      <property name="maximumSize">
+       <size>
+        <width>299</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #5f5fc3;
+    border-radius: 10px;</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QPushButton" name="move_to_background">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">.QPushButton {
+	background-color: #5f5fc3; 
+    border-style: none; 
+    border-radius: 10px; 
+    padding: 10px; 
+    color: white;
+}
+
+.QPushButton:hover {
+    background-color: #7c7cff;
+}</string>
+           </property>
+           <property name="text">
+            <string>Переместить назад</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="move_to_overground">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">.QPushButton {
+	background-color: #5f5fc3; 
+    border-style: none; 
+    border-radius: 10px; 
+    padding: 10px; 
+    color: white;
+}
+
+.QPushButton:hover {
+    background-color: #7c7cff;
+}</string>
+           </property>
+           <property name="text">
+            <string>Переместить вперед</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="change_object">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">.QPushButton {
+	background-color: #5f5fc3; 
+    border-style: none; 
+    border-radius: 10px; 
+    padding: 10px; 
+    color: white;
+}
+
+.QPushButton:hover {
+    background-color: #7c7cff;
+}</string>
+           </property>
+           <property name="text">
+            <string>Изменить</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="delete_object">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">.QPushButton {
+	background-color: #5f5fc3; 
+    border-style: none; 
+    border-radius: 10px; 
+    padding: 10px; 
+    color: white;
+}
+
+.QPushButton:hover {
+    background-color: #7c7cff;
+}</string>
+           </property>
+           <property name="text">
+            <string>Удалить</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QScrollArea" name="objects_area">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: #5f5fc3;</string>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOn</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="objects_area_layout_widget">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>162</width>
+            <height>242</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="objects_area_layout">
+           <item>
+            <widget class="QRadioButton" name="radioButton">
+             <property name="text">
+              <string>RadioButton</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">radio_group</string>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="5" column="4">
+     <widget class="QPushButton" name="last_frame">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: white;
+	padding: 2px;
+    border-style: none;
+    border-radius: 0;
+    background-color: #3b3b4b;
+}
+
+QPushButton:hover {
+    background-color: #4a4a5d;
+    border-style: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>На последний кадр</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QPushButton" name="delete_frame">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: white;
+	padding: 2px;
+    border-style: none;
+    border-radius: 0;
+    background-color: #3b3b4b;
+}
+
+QPushButton:hover {
+    background-color: #4a4a5d;
+    border-style: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>Удалить кадр</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QWidget" name="widget_2" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>205</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>299</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #5f5fc3;
+    border-radius: 10px;</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_7">
+       <item>
+        <widget class="QPushButton" name="pencil_tool">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">.QPushButton {
+	background-color: #5f5fc3; 
+    border-style: none; 
+    border-radius: 10px; 
+    padding: 10px; 
+    color: white;
+}
+
+.QPushButton:hover {
+    background-color: #7c7cff;
+}</string>
+         </property>
+         <property name="text">
+          <string>Ручка</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="line_tool">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">.QPushButton {
+	background-color: #5f5fc3; 
+    border-style: none; 
+    border-radius: 10px; 
+    padding: 10px; 
+    color: white;
+}
+
+.QPushButton:hover {
+    background-color: #7c7cff;
+}</string>
+         </property>
+         <property name="text">
+          <string>Линия</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="ellipse_tool">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">.QPushButton {
+	background-color: #5f5fc3; 
+    border-style: none; 
+    border-radius: 10px; 
+    padding: 10px; 
+    color: white;
+}
+
+.QPushButton:hover {
+    background-color: #7c7cff;
+}</string>
+         </property>
+         <property name="text">
+          <string>Окружность</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="fill_tool">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">.QPushButton {
+	background-color: #5f5fc3; 
+    border-style: none; 
+    border-radius: 10px; 
+    padding: 10px; 
+    color: white;
+}
+
+.QPushButton:hover {
+    background-color: #7c7cff;
+}</string>
+         </property>
+         <property name="text">
+          <string>Заливочный
+контур</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QSpinBox" name="frame_rate">
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; font-size: 16px;</string>
+      </property>
+      <property name="maximum">
+       <number>5000</number>
+      </property>
+      <property name="value">
+       <number>144</number>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0" colspan="5">
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>85</height>
+       </size>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOn</enum>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>976</width>
+         <height>62</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QSlider" name="timeline">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>16</height>
+           </size>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="ruler" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>16</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>20</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QPushButton" name="copy_frame">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	color: white;
+	padding: 2px;
+    border-style: none;
+    border-radius: 0;
+    background-color: #3b3b4b;
+}
+
+QPushButton:hover {
+    background-color: #4a4a5d;
+    border-style: none;
+}</string>
+        </property>
+        <property name="text">
+         <string>Копировать кадр</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="paste_frame">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	color: white;
+	padding: 2px;
+    border-style: none;
+    border-radius: 0;
+    background-color: #3b3b4b;
+}
+
+QPushButton:hover {
+    background-color: #4a4a5d;
+    border-style: none;
+}</string>
+        </property>
+        <property name="text">
+         <string>Вставить кадр</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="create_frame">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: white;
+	padding: 2px;
+    border-style: none;
+    border-radius: 0;
+    background-color: #3b3b4b;
+}
+
+QPushButton:hover {
+    background-color: #4a4a5d;
+    border-style: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>Создать кадр</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QPushButton" name="previous_frame">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	color: white;
+	padding: 2px;
+    border-style: none;
+    border-radius: 0;
+    background-color: #3b3b4b;
+}
+
+QPushButton:hover {
+    background-color: #4a4a5d;
+    border-style: none;
+}</string>
+        </property>
+        <property name="text">
+         <string>На кадр назад</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="next_frame">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	color: white;
+	padding: 2px;
+    border-style: none;
+    border-radius: 0;
+    background-color: #3b3b4b;
+}
+
+QPushButton:hover {
+    background-color: #4a4a5d;
+    border-style: none;
+}</string>
+        </property>
+        <property name="text">
+         <string>На кадр вперед</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="2">
+     <widget class="QScrollArea" name="drawing_area">
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOn</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOn</enum>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="drawing_area_container">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1022</width>
+         <height>1022</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QWidget" name="canvas_placeholder" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>1000</width>
+            <height>1000</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">* {
+    background-color: #5f5fc3; 
+    border-style: none; 
+    padding: 2px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+*:hover {
+    background-color: #5f5fc3; 
+}</string>
+   </property>
+   <widget class="QMenu" name="file_window">
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <addaction name="to_choose_project_window"/>
+   </widget>
+   <widget class="QMenu" name="render_window">
+    <property name="title">
+     <string>Рендер</string>
+    </property>
+    <addaction name="render_animation"/>
+    <addaction name="render_sequence"/>
+    <addaction name="play"/>
+   </widget>
+   <widget class="QMenu" name="help_window">
+    <property name="title">
+     <string>Помощь</string>
+    </property>
+    <addaction name="documentation"/>
+    <addaction name="about"/>
+   </widget>
+   <widget class="QMenu" name="canvas_window">
+    <property name="title">
+     <string>Холст</string>
+    </property>
+    <addaction name="set_canvas_width"/>
+    <addaction name="set_canvas_height"/>
+    <addaction name="set_canvas_scale_step"/>
+    <addaction name="set_default_stroke_width"/>
+    <addaction name="set_default_stroke_color"/>
+    <addaction name="set_default_filler_color"/>
+    <addaction name="set_ghost"/>
+   </widget>
+   <addaction name="file_window"/>
+   <addaction name="render_window"/>
+   <addaction name="canvas_window"/>
+   <addaction name="help_window"/>
+  </widget>
+  <action name="to_choose_project_window">
+   <property name="text">
+    <string>Главное меню</string>
+   </property>
+   <property name="shortcut">
+    <string>Home</string>
+   </property>
+  </action>
+  <action name="render_animation">
+   <property name="text">
+    <string>Рендер анимации</string>
+   </property>
+  </action>
+  <action name="documentation">
+   <property name="text">
+    <string>Документация</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="about">
+   <property name="text">
+    <string>О программе</string>
+   </property>
+  </action>
+  <action name="render_sequence">
+   <property name="text">
+    <string>Рендер секвенции</string>
+   </property>
+  </action>
+  <action name="set_default_stroke_width">
+   <property name="text">
+    <string>Обычная толщина обводки</string>
+   </property>
+  </action>
+  <action name="set_default_filler_color">
+   <property name="text">
+    <string>Обычный цвет заливки</string>
+   </property>
+  </action>
+  <action name="set_default_stroke_color">
+   <property name="text">
+    <string>Обычный цвет обводки</string>
+   </property>
+  </action>
+  <action name="set_canvas_width">
+   <property name="text">
+    <string>Ширина холста</string>
+   </property>
+  </action>
+  <action name="set_canvas_height">
+   <property name="text">
+    <string>Высота холста</string>
+   </property>
+  </action>
+  <action name="set_canvas_scale_step">
+   <property name="text">
+    <string>Шаг масштабирования холста</string>
+   </property>
+  </action>
+  <action name="play">
+   <property name="text">
+    <string>Предпросмотр анимации</string>
+   </property>
+   <property name="shortcut">
+    <string>Space</string>
+   </property>
+  </action>
+  <action name="set_ghost">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Отображение предыдущего кадра</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="radio_group"/>
+ </buttongroups>
+</ui>
